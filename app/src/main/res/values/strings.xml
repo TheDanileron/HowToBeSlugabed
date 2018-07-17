@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">HowToBeSlugabed</string>
+    <string name="mainTitle">Как быть лежебокой?</string>
+
+    <string-array name="steps">
+        <item>Шаг 1</item>
+        <item>Шаг 2</item>
+        <item>Шаг 3</item>
+        <item>Шаг 4</item>
+        <item>Шаг 5</item>
+        <item>Шаг 6</item>
+        <item>Шаг 7</item>
+        <item>Шаг 8</item>
+        <item>Шаг 9</item>
+    </string-array>
+</resources>
