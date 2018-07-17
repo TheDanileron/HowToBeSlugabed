@@ -1,35 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:layout_height="wrap_content"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:fontFamily="@font/truenolt"
-        android:text="@string/mainTitle"
-        android:textColor="@color/colorDark"
-        android:textSize="25sp"
-        />
-
-    <com.example.thedanileron.howtobeslugabed.ProportionalImageView
-        android:id="@+id/imageDisplay"
+    <!-- AppBarLayout is a wrapper for a Toolbar in order to apply scrolling effects. -->
+    <!-- Note that AppBarLayout expects to be the first child nested within a CoordinatorLayout -->
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="11dp"
-        android:adjustViewBounds="true"
-        />
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
 
-    <ListView
-        android:id="@+id/listView"
+        <!-- Toolbar is the actual app bar with text and the action items -->
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:titleTextColor="@color/colorWhite" />
+
+        <com.example.thedanileron.howtobeslugabed.ProportionalImageView
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:src="@drawable/main_image"
+            android:id="@+id/imageDisplay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="11dp"
+            android:adjustViewBounds="true"
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
+            />
+    </android.support.design.widget.AppBarLayout>
+
+    <!-- This could also be included from another file using the include tag -->
+    <!-- i.e `res/layout/content_main.xml` -->
+    <!-- `app:layout_behavior` is set to a pre-defined standard scrolling behavior -->
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/my_recycler_view"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" >
+    </android.support.v7.widget.RecyclerView>
 
-</LinearLayout>
+    <!-- Layout for content is here. This can be a RelativeLayout  -->
+
+</android.support.design.widget.CoordinatorLayout>
